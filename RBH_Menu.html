@@ -1,0 +1,33 @@
+
+C = "{";
+global_Type1 =0;
+if(global_PHANToMserial == null){PHANToM = getRandomElement(shuffleList([0 to 999999]));LT0 = random(1,26);if(LT0 == 1){LT0 = "A"}else if(LT0 == 2){LT0 = "B"}else if(LT0 == 3){LT0 = "C"}else if(LT0 == 4){LT0 = "D"}else if(LT0 == 5){LT0 = "E"}else if(LT0 == 6){LT0 = "F"}else if(LT0 == 7){LT0 = "G"}else if(LT0 == 8){LT0 = "H"}else if(LT0 == 9){LT0 = "I"}else if(LT0 == 10){LT0 = "J"}else if(LT0 == 11){LT0 = "K"}else if(LT0 == 12){LT0 = "L"}else if(LT0 == 13){LT0 = "M"}else if(LT0 == 14){LT0 = "N"}else if(LT0 == 15){LT0 = "O"}else if(LT0 == 16){LT0 = "P"}else if(LT0 == 17){LT0 = "Q"}else if(LT0 == 18){LT0 = "R"}else if(LT0 == 19){LT0 = "S"}else if(LT0 == 20){LT0 = "T"}else if(LT0 == 21){LT0 = "U"}else if(LT0 == 22){LT0 = "V"}else if(LT0 == 23){LT0 = "W"}else if(LT0 == 24){LT0 = "X"}else if(LT0 == 25){LT0 = "Y"}else if(LT0 == 26){LT0 = "Z"};LT1 = random(1,26);if(LT1 == 1){LT1 = "A"}else if(LT1 == 2){LT1 = "B"}else if(LT1 == 3){LT1 = "C"}else if(LT1 == 4){LT1 = "D"}else if(LT1 == 5){LT1 = "E"}else if(LT1 == 6){LT1 = "F"}else if(LT1 == 7){LT1 = "G"}else if(LT1 == 8){LT1 = "H"}else if(LT1 == 9){LT1 = "I"}else if(LT1 == 10){LT1 = "J"}else if(LT1 == 11){LT1 = "K"}else if(LT1 == 12){LT1 = "L"}else if(LT1 == 13){LT1 = "M"}else if(LT1 == 14){LT1 = "N"}else if(LT1 == 15){LT1 = "O"}else if(LT1 == 16){LT1 = "P"}else if(LT1 == 17){LT1 = "Q"}else if(LT1 == 18){LT1 = "R"}else if(LT1 == 19){LT1 = "S"}else if(LT1 == 20){LT1 = "T"}else if(LT1 == 21){LT1 = "U"}else if(LT1 == 22){LT1 = "V"}else if(LT1 == 23){LT1 = "W"}else if(LT1 == 24){LT1 = "X"}else if(LT1 == 25){LT1 = "Y"}else if(LT1 == 26){LT1 = "Z"}                                                                                                                                                                                                                                                                                                                                                                                     global_PHANToMserial = "{LT0}{LT1}{PHANToM}"                                                                                                                                                         }else if(global_PHANToMserial != null){global_PHANToMserial = global_PHANToMserial};
+if(global_Activate != 1){
+global_password = global_password;
+global_user = global_user;
+Title = "Login PHANToM Full Lock RBH 4.0";
+PHANToM_Menu = "USER - [{global_user}],PassWord - [{global_password}],Login,Register,[< Exit"}
+else if(global_Activate == 1){
+
+if(global_Main_Switch != 1 and global_Main_Switch != 2){global_Main_Switch = 0;icm = "🔴";icm1 = "OFF"}
+else if(global_Main_Switch == 1){icm = "🟢";icm1 = "ON - I"}
+else if(global_Main_Switch == 2){icm = "🟢";icm1 = "ON - II"};
+if(global_Price_Switch != 1){global_Price_Switch = 0;icp = "🔴";icp1 = "OFF"}
+else if(global_Price_Switch == 1){icp = "🟢";icp1 = "ON"};
+if(global_Kilo_Switch != 1){global_Kilo_Switch = 0;ick = "🔴";ick1 = "OFF"}
+else if(global_Kilo_Switch == 1){ick = "🟢";ick1 = "ON"};
+if(global_ShopBan_Switch != 1){global_ShopBan_Switch = 0;icsb = "🔴";icsb1 = "OFF"}
+else if(global_ShopBan_Switch == 1){icsb = "🟢";icsb1 = "ON"};
+if(global_Origin_Switch != 1){global_Origin_Switch = 0;ico = "🔴";ico1 = "OFF"}
+else if(global_Origin_Switch == 1){ico = "🟢";ico1 = "ON"};
+if(global_Destinate_Switch != 1){global_Destinate_Switch = 0;icd = "🔴";icd1 = "OFF"}
+else if(global_Destinate_Switch == 1){icd = "🟢";icd1 = "ON"};
+global_Desinate_Show = replaceAll(global_Destination_List_RBH,',',' / ');
+global_Origin_Show = replaceAll(global_Origin_List_RBH,',',' / ');
+global_shop_Show = replaceAll(global_Shop_Ban_List_RBH,',',' / ');
+
+Title = "PHANToM RBH Full Lock 4.0";
+PHANToM_Menu = "{icm} - ระบบการทำงาน [{icm1}],{icp} - ล็อคราคา [{icp1}],        🔽 ราคาสูงสุด [{global_Price_limit_Max}] บาท,        🔼 ราคาต่ำสุด [{global_Price_limit_Min}] บาท,{ick} - ล็อคระยะทาง [{ick1}],        🔻ไม่เกิน [{global_Kilo_limit}] กิโลเมตร,{icsb} - แบนร้าน [{icsb1}],ร้านแบน - [{global_shop_Show}],{ico} - ล็อคต้นทาง [{ico1}],ต้นทาง - [{global_Origin_Show}],{icd} - ล็อคปลายทาง [{icd1}],ปลายทาง - [{global_Desinate_Show}],[↑↓สลับต้นทาง - ปลายทาง↓↑],[< ออกจากระบบ,[< ออกจากเมนู"
+
+
+}
