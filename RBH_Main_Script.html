@@ -1,0 +1,204 @@
+Stop_cluster = 0;
+BA = getBounds("ฉันมาถึงร้านค้าแล้ว");
+BA1 = getBounds("ฉันรับสินค้าแล้ว");
+BA2 = getBounds("ฉันมาถึงแล้ว");
+BA3 = getBounds("*สถานะงาน*");
+
+
+
+
+
+if(global_PHANToMserial == global_PHANToMs and global_Activate == 1){
+//Switch//global_Main_Switch = 1;global_Kilo_Switch = 1;global_Price_Switch = 1;global_Origin_Switch = 1;global_Destinate_Switch = 1;global_ShopBan_Switch = 1;
+
+//List_Value//global_Price_limit_Max = 990;global_Price_limit_Min = 0;global_Kilo_limit = 2.0;
+
+//District_List//global_Origin_List_RBH = 'บางเลน';global_Destination_List_RBH = 'บางเลน,บางกร่าง,บาง';
+
+//Shop_Ban_List//global_Shop_Ban_List_RBH = 'ครัวคนงาม,พริกน้ำปลาทำเอง';
+if(trigger == 'PHANToM RBH Touch' and global_Main_Switch == 2){
+Count = 0;
+Box_0 = getBounds("*วันที่ :*");
+Box_1 = getBounds("*จำนวนงานที่เห็นทั้งหมด :*");
+Box_2 = getBounds("*จำนวนงานที่รับ :*");
+Box_3 = getBounds("*จำนวนงานที่ไม่รับ :*");
+while((Box_0 == null or Box_1 == null or Box_2 == null or Box_3 == null) and Count < 25)
+{Box_0 = getBounds("*วันที่ :*");
+Box_1 = getBounds("*จำนวนงานที่เห็นทั้งหมด :*");
+Box_2 = getBounds("*จำนวนงานที่รับ :*");
+Box_3 = getBounds("*จำนวนงานที่ไม่รับ :*");
+Count = Count + 1;sleep(5);}
+if(Box_0 != null and Box_1 != null and Box_2 != null and Box_3 != null and Count < 25)
+{clickByIdAndIndex("", 8);sleep(500);}};
+if(global_Main_Switch == 1){
+Next = 0;global_Type1 = 1;
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+if(BoxT_0 != null and BoxT_1 != null){
+Next = 1}};
+//Default_Value//
+Stop_cluster = 0;
+BA = getBounds("ฉันมาถึงร้านค้าแล้ว");
+BA1 = getBounds("ฉันรับสินค้าแล้ว");
+BA2 = getBounds("ฉันมาถึงแล้ว");
+BA3 = getBounds("*สถานะงาน*");
+
+Online = getBounds("ออนไลน์");
+Execute_Action = getBounds("รับงาน*");
+Data_RBH = getContentDescription("*อยู่ห่าง*");
+if(Data_RBH != null and Data_RBH != '' and Online != null){
+Price_Max = global_Price_limit_Max + 0.00;
+Price_Min = global_Price_limit_Min + 0.00;
+Kilo_limit = global_Kilo_limit + 0.00;
+Origin_List = global_Origin_List_RBH;
+Destination_List = global_Destination_List_RBH;
+Shop_Ban_List = global_Shop_Ban_List_RBH;
+Origin_List = ".*{Origin_List}.*";
+Origin_List = replaceAll(Origin_List,',','.*|.*');
+Destination_List = ".*{Destination_List}.*";
+Destination_List = replaceAll(Destination_List,',','.*|.*');
+Shop_Ban_List = ".*{Shop_Ban_List}.*";
+Shop_Ban_List = replaceAll(Shop_Ban_List,',','.*|.*');
+if(global_Main_Switch != 1 and global_Main_Switch != 2)
+{Main_Switch = 0;}
+else if(global_Main_Switch == 1 or global_Main_Switch == 2){Main_Switch = 1};
+Main_Condition = 0;
+Kilo_Condition = 0;
+Price_Condition = 0;
+Origin_Condition = 0;
+Destinate_Condition = 0;
+Shop_Condition = 0;
+PHANToM_Action_RBH = 0;
+Notification = "เกิดข้อผิดพลาด! (error 1)";};
+Execute_Action = getBounds("รับงาน*");
+//Decode_Value//
+//Kilo//
+if(global_PHANToMserial == global_PHANToMs and global_Activate == 1){
+Kilo = findAll(Data_RBH, 'อยู่ห่าง\\n .*');
+Kilo = replaceAll(Kilo, 'อยู่ห่าง\\n ', '');
+Kilo = replace(Kilo, '[', '');
+Kilo = replace(Kilo, ' ]', '');
+Execute_Action = getBounds("รับงาน*");
+
+//Price//
+Price = findAll(Data_RBH, 'อยู่ห่าง\\n.*\\n.*\\n.*\\n.*\\n.*\\n');
+Price = replaceAll(Price, 'อยู่ห่าง\\n.*\\n.*\\n.*\\n.*\\n','');
+Price = replace(Price, '[', '');
+Price = replace(Price, '\n]', '');
+Execute_Action = getBounds("รับงาน*");
+
+//Origination//
+Origination = findAll(Data_RBH, 'อยู่ห่าง\\n.*\\n.*\\n.*');
+Origination = replaceAll(Origination, 'อยู่ห่าง\\n.*\\n.*\\n', '');
+Origination = replace(Origination, '[', '');
+Origination = replace(Origination, ' ]', '');
+Execute_Action = getBounds("รับงาน*");
+
+//Destination//
+Destination = findAll(Data_RBH, 'อยู่ห่าง\\n.*\\n.*\\n.*\\n.*');
+Destination = replaceAll(Destination, 'อยู่ห่าง\\n.*\\n.*\\n.*\\n', '');
+Destination = replace(Destination, '[', '');
+Destination = replace(Destination, ']', '');
+if(global_PHANToMserial != global_PHANToMs or global_Activate != 1){global_PHANToMs = null;global_Activate = null};
+//Shop//
+Shop = findAll(Data_RBH, '.*\\nอยู่ห่าง');
+Shop = replaceAll(Shop, '\\nอยู่ห่าง', '');
+Shop = replace(Shop, '[', '');
+Shop = replace(Shop, ']', '');
+
+//Encode_Value//
+if(Main_Switch == 1){Main_Condition = 1};
+if(global_Origin_Switch == 1){
+Origination_Matches = matches(Origination, Origin_List);};
+if(global_Destinate_Switch == 1){
+Destination_Matches = matches(Destination, Destination_List);};
+if(global_ShopBan_Switch == 1){
+Shop_Ban_Matches = matches(Shop, Shop_Ban_List);};
+
+if(global_Origin_Switch == 1){
+if(Origination_Matches == true){Origin_Condition = 1}
+else if(Origination_Matches != true){Origin_Condition = 0;Notification_ORG = "ต้นทางไม่ตรงเงื่อนไข"};}
+else if(global_Origin_Switch != 1){Origin_Condition = 0;};
+
+if(global_Destinate_Switch == 1){
+if(Destination_Matches == true){Destinate_Condition = 1}
+else if(Destination_Matches != true){Destinate_Condition = 0;Notification_DTN = "ปลายทางไม่ตรงเงื่อนไข"};}
+else if(global_Destinate_Switch != 1){Destinate_Condition = 0;};
+
+if(global_ShopBan_Switch == 1){
+if(Shop_Ban_Matches == true){Shop_Condition = 0;Notification_SBL = "ร้านแบน"}
+else if(Shop_Ban_Matches != true){Shop_Condition = 1};}
+else if(global_ShopBan_Switch != 1){Shop_Condition = 0;};
+
+
+if(Kilo >= 0.00 and Kilo <= Kilo_limit){Kilo_Condition = 1}
+else if(Kilo > Kilo_limit){Notification_KL = "ระยะทางไกลเกินไป"}
+else if(Kilo < 0.00){Notification_KL = "ระยะทางไม่ตรงเงื่อนไข"};
+if(Price >= Price_Min and Price <= Price_Max){Price_Condition = 1}
+else if(Price < Price_Min){Notification_P = "ราคาต่ำเกินไป"}
+else if(Price > Price_Max){Notification_P = "ราคาสูงเกินไป"};}
+                                                                                          
+//Value_Caluculate//
+SUM_Switch_Enable = Main_Switch + global_Kilo_Switch + global_Price_Switch + global_Origin_Switch + global_Destinate_Switch + global_ShopBan_Switch;
+SUM_Codition = Main_Condition + Kilo_Condition + Price_Condition + Origin_Condition + Destinate_Condition + Shop_Condition;
+if(SUM_Switch_Enable == SUM_Codition){PHANToM_Action_RBH = 1;
+
+Execute_Action = getBounds("รับงาน*");click("รับงาน*");
+sleep(10);click("รับงาน*");if(Execute_Action != null)
+{Action_X = getElement(Execute_Action, 0);Action_Y = getElement(Execute_Action, 1);
+Action_W = getElement(Execute_Action, 2);Action_H = getElement(Execute_Action, 3);
+RW = Action_W/2;RH = Action_H/2;Action_X = Action_X + RW;
+Action_Y = Action_Y + RH; RDW = random((RW - Action_W),RW);
+RDH = random((RH - Action_H),RH); Action_X = Action_X + RDW;
+Action_Y = Action_Y + RDH; click(Action_X,Action_Y);
+T = random(10,90);RDW = random((RW - Action_W),RW);
+RDH = random((RH - Action_H),RH);Action_X = Action_X + RDW;
+Action_Y = Action_Y + RDH;
+touchGesture(0, T, newList(Action_X,Action_Y));};
+Execute_Action = getBounds("รับงาน*");click("รับงาน*");
+sleep(10);click("รับงาน*");if(Execute_Action != null)
+{Action_X = getElement(Execute_Action, 0);Action_Y = getElement(Execute_Action, 1);
+Action_W = getElement(Execute_Action, 2);Action_H = getElement(Execute_Action, 3);
+RW = Action_W/2;RH = Action_H/2;Action_X = Action_X + RW;
+Action_Y = Action_Y + RH; RDW = random((RW - Action_W),RW);
+RDH = random((RH - Action_H),RH); Action_X = Action_X + RDW;
+Action_Y = Action_Y + RDH; click(Action_X,Action_Y);
+T = random(10,90);RDW = random((RW - Action_W),RW);
+RDH = random((RH - Action_H),RH);Action_X = Action_X + RDW;
+Action_Y = Action_Y + RDH;
+touchGesture(0, T, newList(Action_X,Action_Y));};
+
+}
+else if(SUM_Switch_Enable != SUM_Codition and Data_RBH != null and Data_RBH != ''){
+Notification = findAll('', 'PHANToM');
+if(Notification_P != null){addElement(Notification, Notification_P)};
+if(Notification_KL != null){addElement(Notification, Notification_KL)};
+if(Notification_ORG != null){addElement(Notification, Notification_ORG)};
+if(Notification_DTN != null){addElement(Notification, Notification_DTN)};
+if(Shop_Ban_Matches == true){Notification = "แบนร้าน!"};
+Notification = "ข้อมูล - {Notification}";a=null;sqrt(a)};
+
+if(trigger == 'PHANToM RBH Touch' and global_Main_Switch == 2){
+Count = 0;
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+while((BoxT_0 == null or BoxT_1 == null) and Count < 30){
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+Count = Count + 1;sleep(5);}
+if(BoxT_0 != null and BoxT_1 != null and Count < 30)
+{sleep(800);clickByIdAndIndex("", 12);}};
+if(global_Main_Switch == 1){
+Next = 0;global_Type1 = 1;
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+BoxT_0 = getBounds("*อัตราการรับงาน*");
+BoxT_1 = getBounds("*กำลังมองหางาน...*");
+if(BoxT_0 != null and BoxT_1 != null){
+Next = 1}};
+//PHANToM//
+};
+Online = getBounds("ออนไลน์");
+if(global_PHANToMserial != global_PHANToMs or global_Activate != 1){global_PHANToMs = null;global_Activate = null};
