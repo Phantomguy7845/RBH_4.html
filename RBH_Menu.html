@@ -22,12 +22,14 @@ if(global_Origin_Switch != 1){global_Origin_Switch = 0;ico = "🔴";ico1 = "OFF"
 else if(global_Origin_Switch == 1){ico = "🟢";ico1 = "ON"};
 if(global_Destinate_Switch != 1){global_Destinate_Switch = 0;icd = "🔴";icd1 = "OFF"}
 else if(global_Destinate_Switch == 1){icd = "🟢";icd1 = "ON"};
+if(global_skiper != 1){global_skiper = 0;icksp = "🔴";icksp1 = "OFF";}
+else if(global_skiper == 1){icksp = "🟢";icksp1 = "ON";};
 global_Desinate_Show = replaceAll(global_Destination_List_RBH,',',' / ');
 global_Origin_Show = replaceAll(global_Origin_List_RBH,',',' / ');
 global_shop_Show = replaceAll(global_Shop_Ban_List_RBH,',',' / ');
 
 Title = "PHANToM RBH Full Lock 4.0";
-PHANToM_Menu = "{icm} - ระบบการทำงาน [{icm1}],{icp} - ล็อคราคา [{icp1}],        🔽 ราคาสูงสุด [{global_Price_limit_Max}] บาท,        🔼 ราคาต่ำสุด [{global_Price_limit_Min}] บาท,{ick} - ล็อคระยะทาง [{ick1}],        🔻ไม่เกิน [{global_Kilo_limit}] กิโลเมตร,{icsb} - แบนร้าน [{icsb1}],ร้านแบน - [{global_shop_Show}],{ico} - ล็อคต้นทาง [{ico1}],ต้นทาง - [{global_Origin_Show}],{icd} - ล็อคปลายทาง [{icd1}],ปลายทาง - [{global_Desinate_Show}],[↑↓สลับต้นทาง - ปลายทาง↓↑],[< ออกจากระบบ,[< ออกจากเมนู"
+PHANToM_Menu = "{icm} - ระบบการทำงาน [{icm1}],{icp} - ล็อคราคา [{icp1}],        🔽 ราคาสูงสุด [{global_Price_limit_Max}] บาท,        🔼 ราคาต่ำสุด [{global_Price_limit_Min}] บาท,{ick} - ล็อคระยะทาง [{ick1}],        🔻ไม่เกิน [{global_Kilo_limit}] กิโลเมตร,{icsb} - แบนร้าน [{icsb1}],ร้านแบน - [{global_shop_Show}],{ico} - ล็อคต้นทาง [{ico1}],ต้นทาง - [{global_Origin_Show}],{icd} - ล็อคปลายทาง [{icd1}],ปลายทาง - [{global_Desinate_Show}],[↑↓สลับต้นทาง - ปลายทาง↓↑],{icksp} - ข้ามงานที่ไม่ตรงเงื่อนไข [{icksp1}],[< ออกจากระบบ,[< ออกจากเมนู"
 
 
 }
